@@ -1,7 +1,8 @@
-import React from 'react'
+// first page you will see
+// homepage with navbar
 
-export default function index() {
-  return (
-    <div>website</div>
-  )
-}
+import { Container, Box, Heading } from "@chakra-ui/react";
+const HomePage = () => {
+  return <Box> hi</Box>;
+};
+export default HomePage;
