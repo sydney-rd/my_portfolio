@@ -1,20 +1,17 @@
-// web c++ python fullstack stc*
-import { Box, Button } from "@chakra-ui/react";
-import Link from "next/link";
+import { Box } from "@chakra-ui/react";
 
-export default function projectPageflcjflsdf() {
+export default function ProjectCategories({ selectedCategory, onCategoryClick }) {
+  const categories = ["WEB", "C++", "PYTHON", "FULLSTACK"];
+
   return (
-    <Box w="60" h="100vh">
-       <Box p="4">
-      <Button> WEB </Button>
-      </Box>
-      <Box p="4">
-      <Button> C++ </Button>
-      </Box> 
-      <Button> PYTHON </Button>
-
-      <Button> FULLSTACK </Button>
-
+    <Box>
+      {categories.map((category, index) => (
+        <Box p="4" key={index} onClick={() => onCategoryClick(category)}>
+          <p className={`projectCategories ${selectedCategory === category ? "active" : ""}`}>
+            {category}
+          </p>
+        </Box>
+      ))}
     </Box>
   );
 }

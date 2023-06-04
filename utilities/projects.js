@@ -1,14 +1,29 @@
-let projects = [
+export const projects = [
   {
-    name: "Project one",
+    name: "UI Pattern Project",
     href: "/p1",
+    category: "WEB"
   },
   {
-    name: "Project two",
+    name: "NASA API",
     href: "/p2",
+    category: "WEB"
   },
   {
-    name: "Project 3",
-    href: "/p3",
+    name: "Account Manager",
+    href: "/p2",
+    category: "C++"
+
   },
+  {
+    name: "Code Generator",
+    href: "/p3",
+    category: "PYTHON"
+
+  },
+  {
+    name: "MERN Stack",
+    href: "/p4",
+    category: "FULLSTACK"
+  }
 ];
