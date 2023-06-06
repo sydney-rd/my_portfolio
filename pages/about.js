@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Link, VStack } from '@chakra-ui/react';
+import React from "react";
+import { Box, Link, VStack } from "@chakra-ui/react";
 
 export default function About() {
   return (
@@ -14,10 +14,7 @@ export default function About() {
         </VStack>
       </Box>
       <Box flex="2">
-        {/* Your content for the right side of the page */}
-        <div>
-          Events &rarr; Fullstack Developer
-        </div>
+        <div>Events &rarr; Fullstack Developer</div>
       </Box>
     </Box>
   );

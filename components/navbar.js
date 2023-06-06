@@ -13,6 +13,7 @@ export default function Navbar() {
       justifyContent="flex-start"
       alignItems="flex-end"
       paddingRight="4"
+        zIndex="2"
     >
       <Spacer />
       <Box p="4">
@@ -27,7 +28,7 @@ export default function Navbar() {
         </Box>
       </Box>
       <Spacer />
-      <Box p="3">
+      <Box p="3" pt="4">
         <Box className="navBar" transform="rotate(90deg)" whiteSpace="pre">
           RESUME
         </Box>

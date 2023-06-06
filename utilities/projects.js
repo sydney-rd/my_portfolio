@@ -2,28 +2,33 @@ export const projects = [
   {
     name: "UI Pattern Project",
     href: "/p1",
-    category: "WEB"
+    category: "WEB",
+    color: "green"
   },
   {
     name: "NASA API",
     href: "/p2",
-    category: "WEB"
+    category: "WEB",
+    color: "blue"
   },
   {
     name: "Account Manager",
     href: "/p2",
-    category: "C++"
+    category: "C++",
+    color: "red"
 
   },
   {
     name: "Code Generator",
     href: "/p3",
-    category: "PYTHON"
+    category: "PYTHON",
+    color: "green"
 
   },
   {
     name: "MERN Stack",
     href: "/p4",
-    category: "FULLSTACK"
+    category: "FULLSTACK",
+    color: "red"
   }
 ];
