@@ -35,8 +35,13 @@ export default function ProjectPage() {
   };
 
   const hoverLeave = () => {
-    setTint({color: "", opacity: "0"})
-  }
+    setTint((prevTint) => ({
+      ...prevTint,
+      opacity: "0",
+      transition: "opacity 0.3s ease",
+    }));
+  };
+  
   const backgroundStyle = {
     backgroundImage: getBackgroundImage(),
     backgroundSize: "cover",
@@ -54,7 +59,7 @@ export default function ProjectPage() {
         zIndex="1"
         bg={tint.color}
         opacity={tint.opacity}
-        transition="opacity 0.7s ease"
+        transition="opacity 0.8s ease"
         brightness="80%"
         filter="auto"
 
