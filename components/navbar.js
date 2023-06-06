@@ -17,18 +17,18 @@ export default function Navbar() {
       <Spacer />
       <Box p="4">
         <Box transform="rotate(90deg)" whiteSpace="pre">
-          <Link href="/about">ABOUT</Link>
+          <Link className="navBar" href="/about">ABOUT</Link>
         </Box>
       </Box>
       <Spacer />
       <Box p="1">
         <Box transform="rotate(90deg)" whiteSpace="pre">
-          <Link href="/projectPage">PROJECTS</Link>
+          <Link className="navBar" href="/projectPage">PROJECTS</Link>
         </Box>
       </Box>
       <Spacer />
       <Box p="3">
-        <Box transform="rotate(90deg)" whiteSpace="pre">
+        <Box className="navBar" transform="rotate(90deg)" whiteSpace="pre">
           RESUME
         </Box>
       </Box>

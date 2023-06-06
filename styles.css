@@ -1,11 +1,45 @@
-.projectCategories {
-    cursor: pointer;
-    color: green;
+@font-face {
+    font-family: customFont;
+    src: url("assets/library-3-am/Library\ 3\ am.otf") format("opentype");
 }
 
+.projectCategoriesContainer {
+    position: relative;
+    left: 0;
+    bottom: 2rem;
+    padding-top: 5rem;
+}
+
+.projectCategories {
+    color: wheat;
+    cursor: pointer;
+    font-size: .8rem;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .projectNames {
     color: black;
-	font-size: 5rem;
-	-webkit-text-stroke: 1px black;
-	-webkit-text-fill-color: white;
+    font-family: customFont;
+    font-size: 5rem;
+    white-space: nowrap;
+    transition: color 0.3s;
+    position: absolute;
+    top: 50%;
+    right: 2rem; /* Adjust the right value as needed */
+    transform: translate(0, -50%); /* Update only the Y-axis translation */
+    text-align: center;
+    display: block; /* Add this property */
+}
+
+
+.projectNames:hover {
+    color: blue;
+}
+
+
+.navBar {
+    color: wheat;
+    font-size: .8rem;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
