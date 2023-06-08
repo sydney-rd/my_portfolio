@@ -9,7 +9,7 @@ export const projects = [
     name: "NASA API",
     href: "/p2",
     category: "WEB",
-    color: "orange"
+    color: "pink"
   },
   {
     name: "ACCOUNT MANAGER",

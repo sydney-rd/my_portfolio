@@ -4,7 +4,6 @@ import { Flex, Box, VStack, Link as ChakraLink } from '@chakra-ui/react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import ProjectCategories from '../components/ProjectCategories'
-import Navbar from '../components/navbar'
 
 const MotionChakraLink = motion(ChakraLink)
 
@@ -13,24 +12,7 @@ export default function ProjectPage() {
   const [hoveredItem, setHoveredItem] = useState('')
   const [tint, setTint] = useState({ color: '', opacity: '0' })
 
-  // const projectStyle = {
-  //   opacity: '1',
-  //   fontFamily: 'Ailerons',
-  //   fontSize: '9rem',
-  //   whiteSpace: 'nowrap',
-  //   textAlign: 'right',
-  //   transition: '0.7s',
-  //   textShadow: `0px 0px 8px ${tint.color}`,
-  //   transitionDuration: '0.4s',
-  //   transitionDelay: '0.4s',
-  //   filter: 'brightness(150%)'
-  // }
 
-  // const linkVariants = {
-  //   hover: {
-  //     color: tint.color
-  //   }
-  // }
 
   const LinkItem = ({
     path,
@@ -57,9 +39,7 @@ export default function ProjectPage() {
           fontSize: '9rem',
           whiteSpace: 'nowrap',
           textAlign: 'right',
-          transition: '0.7s',
-          transitionDuration: '0.4s',
-          transitionDelay: '0.4s',
+          transition: 'none',
           filter: 'brightness(150%)',
           color: isHovered ? color : 'transparent',
           WebkitTextStroke: '2px',
@@ -78,7 +58,7 @@ export default function ProjectPage() {
   }
 
   const filteredProjects = projects.filter(
-    project => project.category === selectedCategory
+    (project) => project.category === selectedCategory
   )
 
   const getBackgroundImage = () => {
@@ -104,20 +84,21 @@ export default function ProjectPage() {
   }
 
   const hoverLeave = () => {
-    setTint(prevTint => ({
-      ...prevTint,
+    setTint({
       opacity: '0',
       color: ''
-    }))
+    })
     setHoveredItem('')
   }
+
 
   const backgroundStyle = {
     backgroundImage: getBackgroundImage(),
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     minHeight: '100vh',
-    width: '100vw'
+    width: '100vw',
+    transition: "opacity 0.7s"
   }
 
   return (
@@ -129,11 +110,10 @@ export default function ProjectPage() {
         zIndex="1"
         bg={tint.color}
         opacity={tint.opacity}
-        transition="opacity 1s"
+        transition="opacity 0.7s"
         brightness="100%"
         filter="auto"
       ></Box>
-      <Navbar tintColor={tint.color} />
       <ProjectCategories
         selectedCategory={selectedCategory}
         onCategoryClick={handleCategoryClick}
