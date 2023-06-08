@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { projects } from '../utilities/projects'
 import { Flex, Box, VStack, Link as ChakraLink } from '@chakra-ui/react'
 import Link from 'next/link'
@@ -10,43 +10,62 @@ const MotionChakraLink = motion(ChakraLink)
 
 export default function ProjectPage() {
   const [selectedCategory, setSelectedCategory] = useState('WEB')
+  const [hoveredItem, setHoveredItem] = useState('')
   const [tint, setTint] = useState({ color: '', opacity: '0' })
 
-  const projectStyle = {
-    opacity: '1',
-    fontFamily: 'Ailerons',
-    fontSize: '9rem',
-    whiteSpace: 'nowrap',
-    textAlign: 'right',
-    transition: 'color 0.7s',
-    // textShadow: `0px 0px 8px ${tint.color}`,
-    transitionDuration: '0.4s',
-    transitionDelay: '0.4s',
-    filter: 'brightness(150%)'
-  }
+  // const projectStyle = {
+  //   opacity: '1',
+  //   fontFamily: 'Ailerons',
+  //   fontSize: '9rem',
+  //   whiteSpace: 'nowrap',
+  //   textAlign: 'right',
+  //   transition: '0.7s',
+  //   textShadow: `0px 0px 8px ${tint.color}`,
+  //   transitionDuration: '0.4s',
+  //   transitionDelay: '0.4s',
+  //   filter: 'brightness(150%)'
+  // }
 
-  const linkVariants = {
-    hover: {
-      color: tint.color
-    }
-  }
-  const LinkItem = ({ path, target, href, color, text, ...props }) => {
-    const active = path === href
+  // const linkVariants = {
+  //   hover: {
+  //     color: tint.color
+  //   }
+  // }
+
+  const LinkItem = ({
+    path,
+    target,
+    href,
+    onHover,
+    onHoverLeave,
+    color,
+    text,
+    ...props
+  }) => {
+    const isHovered = hoveredItem === text
 
     return (
       <MotionChakraLink
         as={Link}
+        onMouseEnter={() => onHover(color, text)}
+        onMouseLeave={onHoverLeave}
         href={href}
         target={target}
-        whileHover="hover"
-        variants={linkVariants}
         sx={{
-          color: "transparent",
+          opacity: '1',
+          fontFamily: 'Ailerons',
+          fontSize: '9rem',
+          whiteSpace: 'nowrap',
+          textAlign: 'right',
+          transition: '0.7s',
+          transitionDuration: '0.4s',
+          transitionDelay: '0.4s',
+          filter: 'brightness(150%)',
+          color: isHovered ? color : 'transparent',
           WebkitTextStroke: '2px',
           WebkitTextStrokeColor: color,
-          _hover: { color: color || undefined}
+          _hover: { color: color, textShadow: `0px 0px 8px ${color}` }
         }}
-        style={projectStyle}
         {...props}
       >
         {text}
@@ -77,11 +96,10 @@ export default function ProjectPage() {
     }
   }
 
-  const hover = color => {
+  const hover = (color, text) => {
     if (color) {
-      setTimeout(() => {
-        setTint({ color, opacity: '0.4' })
-      }, 500)
+      setTint({ color, opacity: '0.4' })
+      setHoveredItem(text)
     }
   }
 
@@ -91,6 +109,7 @@ export default function ProjectPage() {
       opacity: '0',
       color: ''
     }))
+    setHoveredItem('')
   }
 
   const backgroundStyle = {
@@ -126,11 +145,11 @@ export default function ProjectPage() {
             text={project.name}
             key={index}
             color={project.color}
+            onHover={hover}
+            onHoverLeave={hoverLeave}
           />
         ))}
       </VStack>
     </Flex>
   )
 }
-
-// ebkitTextFillColor:"transparent",
