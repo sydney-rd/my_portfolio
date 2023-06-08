@@ -1,32 +1,15 @@
 @font-face {
-    font-family: customFont;
-    src: url("assets/library-3-am/Library\ 3\ am.otf") format("opentype");
+    font-family: 'Ailerons';
+    src: url('asset/Ailerons-TrialVersion/Ailerons-TrialVersion.otf') format('opentype');
 }
+
 
 .projectCategories {
     color: wheat;
     cursor: pointer;
-    font-size: .8rem;
+    font-size: .7rem;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+  
 
-.projectNames {
-    color: black;
-    font-family: customFont;
-    font-size: 5rem;
-    white-space: nowrap;
-    transition: color 0.3s;
-    text-align: right;
-}
-
-.projectNames:hover {
-    color: blue;
-}
-
-.navBar {
-    color: wheat;
-    font-size: .8rem;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}

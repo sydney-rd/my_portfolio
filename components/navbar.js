@@ -1,7 +1,21 @@
-import { Box, Spacer } from "@chakra-ui/react";
-import Link from "next/link";
+import React from 'react'
+import { Box, Spacer } from '@chakra-ui/react'
+import Link from 'next/link'
 
-export default function Navbar() {
+export default function Navbar({ tintColor }) {
+  const navBarStyle = {
+    color: tintColor,
+    fontFamily: 'Ailerons',
+    fontSize: '2rem',
+    whiteSpace: 'pre',
+    WebkitTextStroke: `1px ${tintColor}`,
+    transition: 'color 0.3s',
+    fontSize: '.7rem',
+    fontWeight: 'bold',
+    fontFamily: 'Verdana, Geneva, Tahoma, sans-serif',
+    filter: 'brightness(150%)'
+  }
+
   return (
     <Box
       position="fixed"
@@ -13,27 +27,36 @@ export default function Navbar() {
       justifyContent="flex-start"
       alignItems="flex-end"
       paddingRight="4"
-        zIndex="2"
+      zIndex="2"
     >
       <Spacer />
       <Box p="4">
         <Box transform="rotate(90deg)" whiteSpace="pre">
-          <Link className="navBar" href="/about">ABOUT</Link>
+          <Link className="navBar" href="/about" style={navBarStyle}>
+            ABOUT
+          </Link>
         </Box>
       </Box>
       <Spacer />
       <Box p="1">
         <Box transform="rotate(90deg)" whiteSpace="pre">
-          <Link className="navBar" href="/projectPage">PROJECTS</Link>
+          <Link className="navBar" href="/projectPage" style={navBarStyle}>
+            PROJECTS
+          </Link>
         </Box>
       </Box>
       <Spacer />
-      <Box p="3" pt="4">
-        <Box className="navBar" transform="rotate(90deg)" whiteSpace="pre">
+      <Box p="3" pt="6">
+        <Box
+          className="navBar"
+          transform="rotate(90deg)"
+          whiteSpace="pre"
+          style={navBarStyle}
+        >
           RESUME
         </Box>
       </Box>
       <Spacer />
     </Box>
-  );
+  )
 }

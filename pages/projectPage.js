@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { projects } from "../utilities/projects";
 import { Flex, Box, VStack } from "@chakra-ui/react";
 import ProjectCategories from "../components/ProjectCategories";
+import Navbar from "../components/navbar";
 
 export default function ProjectPage() {
   const [selectedCategory, setSelectedCategory] = useState("WEB");
@@ -31,17 +32,35 @@ export default function ProjectPage() {
   };
 
   const hover = (color) => {
-    setTint({ color, opacity: "0.2" });
+    if (color) {
+      setTimeout(() => {
+        setTint({ color, opacity: "0.4" });
+      }, 500);
+    }
   };
 
   const hoverLeave = () => {
     setTint((prevTint) => ({
       ...prevTint,
       opacity: "0",
-      transition: "opacity 0.3s ease",
+      transition: "opacity 1s",
     }));
   };
-  
+
+  const projectStyle = {
+    color: tint.color,
+    fontFamily: "Ailerons",
+    fontSize: "9rem",
+    whiteSpace: "nowrap",
+    textAlign: "right",
+    WebkitTextStroke: `2px ${tint.color}`,
+    transition: "color 0.3s",
+    textShadow: `0px 0px 8px ${tint.color}`,
+    transitionDuration: "2s",
+    transitionDelay: "0.5s",
+    filter: "brightness(150%)",
+  };
+
   const backgroundStyle = {
     backgroundImage: getBackgroundImage(),
     backgroundSize: "cover",
@@ -59,12 +78,11 @@ export default function ProjectPage() {
         zIndex="1"
         bg={tint.color}
         opacity={tint.opacity}
-        transition="opacity 0.8s ease"
-        brightness="80%"
+        transition="opacity 1s"
+        brightness="100%"
         filter="auto"
-
-
       ></Box>
+      <Navbar tintColor={tint.color} />
       <ProjectCategories
         selectedCategory={selectedCategory}
         onCategoryClick={handleCategoryClick}
@@ -73,10 +91,10 @@ export default function ProjectPage() {
         {filteredProjects.map((project, index) => (
           <Box key={index} mb="1rem">
             <a
-              className="projectNames"
               href={project.href}
-              onPointerEnter={() => hover(project.color)}
-              onPointerLeave={hoverLeave}
+              onMouseEnter={() => hover(project.color)}
+              onMouseLeave={hoverLeave}
+              style={projectStyle}
             >
               {project.name}
             </a>
