@@ -5,15 +5,16 @@ import Link from 'next/link'
 export default function Navbar({ tintColor }) {
   const navBarStyle = {
     color: tintColor,
-    fontFamily: 'Ailerons',
-    fontSize: '2rem',
-    whiteSpace: 'pre',
+    fontFamily: "Ailerons",
+    fontSize: "2rem",
+    whiteSpace: "pre",
     WebkitTextStroke: `1px ${tintColor}`,
-    transition: 'color 0.3s',
-    fontSize: '.7rem',
-    fontWeight: 'bold',
-    fontFamily: 'Verdana, Geneva, Tahoma, sans-serif',
-    filter: 'brightness(150%)'
+    transition: "color 0.3s",
+    fontSize: ".7rem",
+    fontWeight: "bold",
+    fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+    filter: "brightness(150%)",
+    transitionDelay: "0.8s"
   }
 
   return (

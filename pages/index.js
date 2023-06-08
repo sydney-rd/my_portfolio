@@ -3,6 +3,6 @@
 
 import { Container, Box, Heading } from "@chakra-ui/react";
 const HomePage = () => {
-  return <Box> hi</Box>;
+  return <Box className="idc"> hi tg</Box>;
 };
 export default HomePage;
