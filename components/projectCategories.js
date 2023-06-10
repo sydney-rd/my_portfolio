@@ -7,7 +7,7 @@ export default function ProjectCategories({
   const categories = ["WEB", "C++", "PYTHON", "FULLSTACK"];
 
   return (
-      <VStack justify="center" align="left" height="100vh" zIndex="2" >
+      <VStack justify="center" align="left" height="100vh" zIndex="2" position="fixed">
         {categories.map((category, index) => (
           <Box p="2" key={index} onClick={() => onCategoryClick(category)}>
             <p
