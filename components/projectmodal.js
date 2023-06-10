@@ -1,29 +1,50 @@
-import React from 'react';
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
+import { Modal, ModalContent, ModalHeader, Box, ModalCloseButton, ModalBody } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
-} from '@chakra-ui/react';
+const MotionModal = motion(Modal);
+const MotionModalContent = motion(ModalContent);
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
-  const { name, description } = project;
-  console.log("hi", name)
+  const { name, description, bg } = project;
+
+  const modalStyle = {
+    background: `url(${bg})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="lg">
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>{name}</ModalHeader>
+    <MotionModal
+      isOpen={isOpen}
+      onClose={onClose}
+      size="full"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.4 }}
+      style={modalStyle}
+    >
+      <MotionModalContent
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -20, opacity: 0 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+        textAlign="center"
+        fontSize="2rem"
+      >
+        <ModalHeader
+          sx={{
+            fontFamily: 'Ailerons',
+            fontSize: '9rem',
+            textAlign: 'center',
+          }}
+        >
+          {name}
+        </ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
-          <p>{description}</p>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
+        <ModalBody>{description}</ModalBody>
+      </MotionModalContent>
+    </MotionModal>
   );
 };
 
