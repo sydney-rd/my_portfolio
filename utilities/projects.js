@@ -1,51 +1,67 @@
 export const projects = [
   {
     name: "UI PATTERN",
-    href: "/p",
+    // href: "/projects/uipattern",
     category: "WEB",
-    color: "darkblue",
+    color: "#39FF14",
+    description: "testing",
+
   },
   {
     name: "NASA API",
-    href: "/p2",
+    // href: "/projects/nasapi",
     category: "WEB",
-    color: "pink"
+    color: "#DA70D6",
+    description: "testing hi",
   },
   {
     name: "TIC TAC TOE",
-    href: "/p3",
+    // href: "/projects/tictactoe",
     category: "WEB",
-    color: "pink"
+    color: "darkblue",
+    description: "testing ",
+
   },
   {
     name: "TEXT ADVENTURE GAME",
-    href: "/p3",
+    // href: "/projects/adv",
+    description: "testing",
     category: "WEB",
-    color: "pink"
+    color: "darkblue"
   },
   {
     name: "ACCOUNT MANAGER",
-    href: "/p2",
+    // href: "/projects/accountmanager",
+    description: "testing",
     category: "C++",
     color: "purple"
   },
   {
     name: "TO-DO MANAGER",
-    href: "/p4",
+    // href: "/projects/todo",
     category: "C++",
+    description: "testing",
     color: "purple"
   },
   {
     name: "CODE GENERATOR",
-    href: "/p3",
+    // href: "/projects/codegenerator",
+    description: "testing",
+    category: "PYTHON",
+    color: "white"
+
+  },
+  {
+    name: "UGLY SOUP",
+    // href: "/projects/uglysoup",
     category: "PYTHON",
     color: "white"
 
   },
   {
     name: "MERN STACK",
-    href: "/p4",
+    // href: "/projects/mernstack",
     category: "FULLSTACK",
-    color: "darkblue"
+    color: "white"
   }
 ];

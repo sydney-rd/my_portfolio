@@ -1,58 +1,39 @@
 import React, { useState } from 'react'
 import { projects } from '../utilities/projects'
-import { Flex, Box, VStack, Link as ChakraLink } from '@chakra-ui/react'
-import Link from 'next/link'
+import {
+  Flex,
+  Box,
+  useDisclosure,
+  VStack,
+  Link as ChakraLink
+} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import ProjectCategories from '../components/ProjectCategories'
+import ProjectModal from '../components/ProjectModal'
 
 const MotionChakraLink = motion(ChakraLink)
 
 export default function ProjectPage() {
   const [selectedCategory, setSelectedCategory] = useState('WEB')
   const [hoveredItem, setHoveredItem] = useState('')
+  const [selectedProject, setSelectedProject] = useState(null)
   const [tint, setTint] = useState({ color: '', opacity: '0' })
 
-  const LinkItem = ({
-    path,
-    target,
-    href,
-    onHover,
-    onHoverLeave,
-    color,
-    text,
-    ...props
-  }) => {
-    const isHovered = hoveredItem === text
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
-    return (
-      <MotionChakraLink
-        as={Link}
-        onMouseEnter={() => onHover(color, text)}
-        onMouseLeave={onHoverLeave}
-        href={href}
-        target={target}
-        sx={{
-          opacity: '1',
-          fontFamily: 'Ailerons',
-          fontSize: '9rem',
-          whiteSpace: 'nowrap',
-          textAlign: 'right',
-          transition: 'none',
-          filter: 'brightness(150%)',
-          color: isHovered ? color : 'transparent',
-          WebkitTextStroke: '2px',
-          WebkitTextStrokeColor: color,
-          _hover: { color: color, textShadow: `0px 0px 8px ${color}` }
-        }}
-        {...props}
-      >
-        {text}
-      </MotionChakraLink>
-    )
+  const handleHover = (color, text) => {
+    setTint({ color, opacity: '0.4' })
+    setHoveredItem(text)
   }
 
-  const handleCategoryClick = category => {
-    setSelectedCategory(category)
+  const handleHoverLeave = () => {
+    setTint({ opacity: '0', color: '' })
+    setHoveredItem('')
+  }
+
+  const handleClick = project => {
+    setSelectedProject(project)
+    onOpen()
   }
 
   const filteredProjects = projects.filter(
@@ -72,21 +53,6 @@ export default function ProjectPage() {
       default:
         return ''
     }
-  }
-
-  const hover = (color, text) => {
-    if (color) {
-      setTint({ color, opacity: '0.4' })
-      setHoveredItem(text)
-    }
-  }
-
-  const hoverLeave = () => {
-    setTint({
-      opacity: '0',
-      color: ''
-    })
-    setHoveredItem('')
   }
 
   const backgroundStyle = {
@@ -113,30 +79,55 @@ export default function ProjectPage() {
       ></Box>
       <ProjectCategories
         selectedCategory={selectedCategory}
-        onCategoryClick={handleCategoryClick}
+        onCategoryClick={setSelectedCategory}
         position="fixed"
       />
       <VStack
         align="flex-end"
         flexGrow={1}
-        pt="5rem"
+        pt="3rem"
         pr="8rem"
         zIndex="2"
         overflowY="scroll"
+        spacing={-1}
         style={{ scrollBehavior: 'smooth' }}
         maxH="100vh"
       >
         {filteredProjects.map((project, index) => (
-          <LinkItem
-            href={project.href}
-            text={project.name}
+          <MotionChakraLink
             key={index}
-            color={project.color}
-            onHover={hover}
-            onHoverLeave={hoverLeave}
-          />
+            onMouseEnter={() => handleHover(project.color, project.name)}
+            onMouseLeave={handleHoverLeave}
+            sx={{
+              opacity: '1',
+              fontFamily: 'Ailerons',
+              fontSize: '9rem',
+              whiteSpace: 'nowrap',
+              textAlign: 'right',
+              transition: 'none',
+              filter: 'brightness(150%)',
+              color:
+                hoveredItem === project.name ? project.color : 'transparent',
+              WebkitTextStroke: '2px',
+              WebkitTextStrokeColor: project.color,
+              _hover: {
+                color: project.color,
+                textShadow: `0px 0px 8px ${project.color}`
+              }
+            }}
+            onClick={() => handleClick(project)}
+          >
+            {project.name}
+          </MotionChakraLink>
         ))}
       </VStack>
+      {selectedProject && (
+        <ProjectModal
+          isOpen={isOpen}
+          onClose={onClose}
+          project={selectedProject}
+        />
+      )}
     </Flex>
   )
 }

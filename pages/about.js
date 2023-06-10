@@ -6,7 +6,6 @@
     return (
       <Box display="flex">
         <Box width="20%" padding="4" >
-          {/* Your links for the left side of the page */}
           <VStack spacing="2" alignItems="flex-start">
             <Link href="https://www.linkedin.com/">LinkedIn</Link>
             <Link href="https://github.com/">GitHub</Link>
