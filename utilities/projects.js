@@ -29,6 +29,7 @@ export const projects = [
     name: "TEXT ADVENTURE GAME",
     description: "testing",
     category: "WEB",
+    color: "#39FF14",
     description: "A project utilzing an API and fetching that data into a play on envelope",
     github: "/gitui",
     link: "netlify"

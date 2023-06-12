@@ -5,25 +5,19 @@ const MotionModal = motion(Modal);
 const MotionModalContent = motion(ModalContent);
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
-  const { name, description, bg } = project;
-
-  const modalStyle = {
-    background: `url(${bg})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
+  const { name, description } = project;
 
   return (
-    <MotionModal
-      isOpen={isOpen}
-      onClose={onClose}
-      size="full"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.4 }}
-      style={modalStyle}
-    >
+      <MotionModal
+        isOpen={isOpen}
+        onClose={onClose}
+        size="full"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.4 }}
+       
+      >
       <MotionModalContent
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -31,18 +25,20 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         transition={{ duration: 0.3, delay: 0.1 }}
         textAlign="center"
         fontSize="2rem"
+
       >
         <ModalHeader
           sx={{
             fontFamily: 'Ailerons',
             fontSize: '9rem',
-            textAlign: 'center',
+            textAlign: "center"
           }}
         >
           {name}
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>{description}</ModalBody>
+      
       </MotionModalContent>
     </MotionModal>
   );

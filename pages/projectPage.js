@@ -87,7 +87,7 @@ export default function ProjectPage() {
         flexGrow={1}
         pt="3rem"
         pr="8rem"
-        zIndex="2"
+        zIndex="1"
         overflowY="scroll"
         spacing={-1}
         style={{ scrollBehavior: 'smooth' }}
