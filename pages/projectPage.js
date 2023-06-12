@@ -43,7 +43,7 @@ export default function ProjectPage() {
   const getBackgroundImage = () => {
     switch (selectedCategory) {
       case 'WEB':
-        return "url('https://i.pinimg.com/originals/90/09/ec/9009ecc79e92b8ba207b43c7e56bfb41.gif')"
+        return "url('https://rare-gallery.com/mocahbig/434051-road-mist-dark-night-rain-nature.jpg')"
       case 'C++':
         return "url('https://rare-gallery.com/mocahbig/434051-road-mist-dark-night-rain-nature.jpg')"
       case 'PYTHON':
@@ -61,7 +61,8 @@ export default function ProjectPage() {
     backgroundPosition: 'center',
     minHeight: '100vh',
     width: '100vw',
-    transition: 'opacity 0.7s'
+    transition: 'opacity 0.7s',
+    // backgroundImage: `url(${filteredProjects[0].bg})` // three?
   }
 
   return (

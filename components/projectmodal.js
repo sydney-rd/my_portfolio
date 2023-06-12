@@ -5,7 +5,8 @@ const MotionModal = motion(Modal);
 const MotionModalContent = motion(ModalContent);
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
-  const { name, description } = project;
+  const { name, description, projectBg } = project;
+  console.log("hi", name, description, projectBg)
 
   return (
       <MotionModal
@@ -16,7 +17,6 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.4 }}
-       
       >
       <MotionModalContent
         initial={{ y: -20, opacity: 0 }}
@@ -25,7 +25,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         transition={{ duration: 0.3, delay: 0.1 }}
         textAlign="center"
         fontSize="2rem"
-
+        backgroundImage={projectBg}
       >
         <ModalHeader
           sx={{

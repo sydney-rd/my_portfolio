@@ -6,7 +6,7 @@ export const projects = [
     description: "A project utilzing an API and fetching that data into a play on envelope",
     github: "/gitui",
     link: "netlify",
-    bg: "../asset/backgroundImgs/uiPattern.png"
+    projectBg: "https://rare-gallery.com/mocahbig/434051-road-mist-dark-night-rain-nature.jpg"
   },
   {
     name: "NASA API",
@@ -14,7 +14,8 @@ export const projects = [
     color: "#39FF14",
     description: "A project utilzing an API and fetching that data into a play on envelope",
     github: "/gitui",
-    link: "netlify"
+    link: "netlify",
+    projectBg: "https://smb.ibsrv.net/imageresizer/image/blog_images/1200x1200/58374/75587/0000655001540319655.jpg"
   },
   {
     name: "TIC TAC TOE",
@@ -22,7 +23,8 @@ export const projects = [
     color: "#39FF14",
     description: "A project utilzing an API and fetching that data into a play on envelope",
     github: "/gitui",
-    link: "netlify"
+    link: "netlify",
+    projectBg: "../asset/background/uipattern.png"
 
   },
   {
@@ -32,7 +34,8 @@ export const projects = [
     color: "#39FF14",
     description: "A project utilzing an API and fetching that data into a play on envelope",
     github: "/gitui",
-    link: "netlify"
+    link: "netlify",
+    projectBg: "../asset/background/uipattern.png"
   },
   {
     name: "ACCOUNT MANAGER",
@@ -40,7 +43,8 @@ export const projects = [
     color: "purple",
     description: "A project utilzing an API and fetching that data into a play on envelope",
     github: "/gitui",
-    link: "netlify"
+    link: "netlify",
+    bg: "https://rare-gallery.com/mocahbig/434051-road-mist-dark-night-rain-nature.jpg"
 
   },
   {
@@ -49,7 +53,9 @@ export const projects = [
     description: "A project utilzing an API and fetching that data into a play on envelope",
     github: "/gitui",
     link: "netlify",
-    color: "purple"
+    color: "purple",
+    bg: "https://rare-gallery.com/mocahbig/434051-road-mist-dark-night-rain-nature.jpg"
+
   },
   {
     name: "CODE GENERATOR",
