@@ -29,6 +29,10 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         textAlign="center"
         fontSize="2rem"
         backgroundImage={projectBg}
+        style={{
+          backgroundSize: "cover", // Adjust the background size here
+          backgroundPosition: "center", // Adjust the background position if needed
+        }}
       >
         <ModalHeader
           sx={{
