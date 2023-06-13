@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import ProjectCategories from '../components/ProjectCategories'
-import ProjectModal from '../components/ProjectModal'
+import ProjectModal from '../components/projectmodal'
 
 const MotionChakraLink = motion(ChakraLink)
 

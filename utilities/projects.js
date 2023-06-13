@@ -12,21 +12,19 @@ export const projects = [
     name: "NASA API",
     category: "WEB",
     color: "#39FF14",
-    description: "A project utilzing an API and fetching that data into a play on envelope",
+    description: "A project utilizing an API and fetching that data into a play on envelope",
     github: "/gitui",
     link: "netlify",
-    projectBg: "https://smb.ibsrv.net/imageresizer/image/blog_images/1200x1200/58374/75587/0000655001540319655.jpg"
+    projectBg: "https://raw.githubusercontent.com/sydney-rd/my_portfolio/main/asset/background/uipattern.png"
   },
   {
     name: "TIC TAC TOE",
     category: "WEB",
     color: "#39FF14",
-    description: "A project utilzing an API and fetching that data into a play on envelope",
+    description: "A project utilizing an API and fetching that data into a play on envelope",
     github: "/gitui",
     link: "netlify",
-    projectBg: "../asset/background/uipattern.png"
-
-  },
+    projectBg: "/asset/background/uipattern.png",  },
   {
     name: "TEXT ADVENTURE GAME",
     description: "testing",

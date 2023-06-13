@@ -1,14 +1,17 @@
 import { Modal, ModalContent, ModalHeader, Box, ModalCloseButton, ModalBody } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+// import { projects} from '../utilities/projects.js'
 
 const MotionModal = motion(Modal);
 const MotionModalContent = motion(ModalContent);
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
   const { name, description, projectBg } = project;
-  console.log("hi", name, description, projectBg)
-
-  return (
+  console.log(projectBg)
+    // // Find the project in the projects array
+    // const selectedProject = projects.find((proj) => proj.name === name);
+    // const backgroundImage = require(`../asset/background${selectedProject.projectBg}`).default;  
+    return (
       <MotionModal
         isOpen={isOpen}
         onClose={onClose}
