@@ -87,7 +87,7 @@ export default function ProjectPage() {
         align="flex-end"
         flexGrow={1}
         pt="3rem"
-        pr="8rem"
+        pr={["4rem", "8rem"]}
         zIndex="1"
         overflowY="scroll"
         spacing={-1}
@@ -102,8 +102,8 @@ export default function ProjectPage() {
             sx={{
               opacity: '1',
               fontFamily: 'Ailerons',
-              fontSize: '9rem',
-              whiteSpace: 'nowrap',
+              fontSize: ['3rem', '9rem'],
+              whiteSpace: ['normal', 'nowrap'],
               textAlign: 'right',
               transition: 'none',
               filter: 'brightness(150%)',

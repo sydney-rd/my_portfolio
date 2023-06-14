@@ -4,7 +4,7 @@ export default function ProjectCategories({
   selectedCategory,
   onCategoryClick,
 }) {
-  const categories = ["WEB", "C++", "PYTHON", "FULLSTACK"];
+  const categories = ["WEB", "C++", "PYTHON"];
 
   return (
       <VStack justify="center" align="left" height="100vh" zIndex="2" position="fixed">

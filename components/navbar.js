@@ -2,13 +2,12 @@ import React from 'react'
 import { Box, Spacer } from '@chakra-ui/react'
 import Link from 'next/link'
 
-export default function Navbar({ tintColor }) {
+export default function Navbar() {
   const navBarStyle = {
-    color: tintColor,
+    // color: tintColor,
     fontFamily: "Ailerons",
-    fontSize: "2rem",
     whiteSpace: "pre",
-    WebkitTextStroke: `1px ${tintColor}`,
+    // WebkitTextStroke: `1px ${tintColor}`,
     transition: "color 0.3s",
     fontSize: ".7rem",
     fontWeight: "bold",
@@ -27,7 +26,7 @@ export default function Navbar({ tintColor }) {
       flexDirection="column"
       justifyContent="flex-start"
       alignItems="flex-end"
-      paddingRight="4"
+      paddingRight={[".2","4"]}
       zIndex="2"
     >
       <Spacer />
@@ -35,6 +34,9 @@ export default function Navbar({ tintColor }) {
         <Box transform="rotate(90deg)" whiteSpace="pre">
           <Link className="navBar" href="/about" style={navBarStyle}>
             ABOUT
+          </Link>
+          <Link className='TEST' href="/test">
+          HELP
           </Link>
         </Box>
       </Box>

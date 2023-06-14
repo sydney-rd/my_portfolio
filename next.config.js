@@ -6,16 +6,17 @@ const path = require('path');
 
 module.exports = {
   reactStrictMode: true,
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
+    const prefix = config.assetPrefix ?? config.basePath ?? '';
     config.module.rules.push({
-      test: /\.(png|jpe?g|gif)$/i,
+      test: /\.mp4$/,
       use: [
         {
           loader: 'file-loader',
           options: {
-            publicPath: '/_next/static/images',
-            outputPath: 'static/images',
-            esModule: false,
+            publicPath: `${prefix}/_next/static/media/`,
+            outputPath: `${isServer ? '../' : ''}static/media/`,
+            name: '[name].[hash].[ext]',
           },
         },
       ],

@@ -33,7 +33,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         transition={{ duration: 0.3, delay: 0.1 }}
         textAlign="center"
         fontSize="2rem"
-        background="black"
+        background="white"
       >
         <ModalHeader
           sx={{
