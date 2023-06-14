@@ -6,7 +6,7 @@ export const projects = [
     description: "A project utilzing an API and fetching that data into a play on envelope",
     github: "/gitui",
     link: "netlify",
-    projectBg: "../asset/background/uipattern.mp4"
+    projectBg: "https://raw.githubusercontent.com/sydney-rd/my_portfolio/main/asset/background/ezgif.com-video-to-gif.gif"
   },
   {
     name: "NASA API",

@@ -1,4 +1,4 @@
-import { Modal, ModalContent, ModalHeader, Box, ModalCloseButton, ModalBody } from '@chakra-ui/react';
+import { Modal, ModalContent, ModalHeader, Box, ModalCloseButton, ModalBody, ModalOverlay } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 // import { projects} from '../utilities/projects.js'
 
@@ -21,6 +21,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         exit={{ opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.4 }}
       >
+        <ModalOverlay />
       <MotionModalContent
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -28,12 +29,17 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         transition={{ duration: 0.3, delay: 0.1 }}
         textAlign="center"
         fontSize="2rem"
-        backgroundImage={projectBg}
-        style={{
-          backgroundSize: "cover", // Adjust the background size here
-          backgroundPosition: "center", // Adjust the background position if needed
-        }}
+        background="black"
       >
+        <Box
+          bgImage={projectBg}
+          bgSize="cover"
+          bgRepeat="no-repeat"
+          bgPosition="center"
+          h="40vh"
+          w="40vw"
+          
+          />
         <ModalHeader
           sx={{
             fontFamily: 'Ailerons',
