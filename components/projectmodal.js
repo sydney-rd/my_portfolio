@@ -1,27 +1,31 @@
-import { Modal, ModalContent, ModalHeader, Box, ModalCloseButton, ModalBody, ModalOverlay } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-// import { projects} from '../utilities/projects.js'
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  Box,
+  ModalCloseButton,
+  ModalBody,
+  ModalOverlay
+} from '@chakra-ui/react'
+import { motion } from 'framer-motion'
 
-const MotionModal = motion(Modal);
-const MotionModalContent = motion(ModalContent);
+const MotionModal = motion(Modal)
+const MotionModalContent = motion(ModalContent)
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
-  const { name, description, projectBg } = project;
-  console.log(projectBg)
-    // // Find the project in the projects array
-    // const selectedProject = projects.find((proj) => proj.name === name);
-    // const backgroundImage = require(`../asset/background${selectedProject.projectBg}`).default;  
-    return (
-      <MotionModal
-        isOpen={isOpen}
-        onClose={onClose}
-        size="full"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.8 }}
-        transition={{ duration: 0.4 }}
-      >
-        <ModalOverlay />
+  const { name, description, projectBg } = project
+
+  return (
+    <MotionModal
+      isOpen={isOpen}
+      onClose={onClose}
+      size="full"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.4 }}
+    >
+      <ModalOverlay />
       <MotionModalContent
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -31,30 +35,40 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         fontSize="2rem"
         background="black"
       >
-        <Box
-          bgImage={projectBg}
-          bgSize="cover"
-          bgRepeat="no-repeat"
-          bgPosition="center"
-          h="40vh"
-          w="40vw"
-          
-          />
         <ModalHeader
           sx={{
             fontFamily: 'Ailerons',
             fontSize: '9rem',
-            textAlign: "center"
+            textAlign: 'center'
           }}
         >
           {name}
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>{description}</ModalBody>
-      
+
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="flex-start"
+          overflow="hidden"
+        >
+          <Box
+            sx={{
+              backgroundImage: `url(${projectBg})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              height: '45vh',
+              width: '45vw',
+              mb: '5rem',
+              borderRadius: '20px',
+              }}
+          />
+        </Box>
       </MotionModalContent>
     </MotionModal>
-  );
-};
+  )
+}
 
-export default ProjectModal;
+export default ProjectModal
