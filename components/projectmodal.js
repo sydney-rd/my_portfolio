@@ -13,7 +13,7 @@ const MotionModal = motion(Modal)
 const MotionModalContent = motion(ModalContent)
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
-  const { name, description, projectBg } = project
+  const { name, description, projectBg, color } = project
 
   return (
     <MotionModal
@@ -39,7 +39,9 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
           sx={{
             fontFamily: 'Ailerons',
             fontSize: '9rem',
-            textAlign: 'center'
+            textAlign: 'center',
+            color: color
+
           }}
         >
           {name}
@@ -50,8 +52,6 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         <Box
           display="flex"
           justifyContent="center"
-          alignItems="flex-start"
-          overflow="hidden"
         >
           <Box
             sx={{
@@ -62,7 +62,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
               height: '45vh',
               width: '45vw',
               mb: '5rem',
-              borderRadius: '20px',
+              borderRadius: '2rem', // not sure to keep ?
               }}
           />
         </Box>
