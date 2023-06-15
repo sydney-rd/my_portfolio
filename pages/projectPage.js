@@ -17,12 +17,12 @@ export default function ProjectPage() {
   const [selectedCategory, setSelectedCategory] = useState('WEB')
   const [hoveredItem, setHoveredItem] = useState('')
   const [selectedProject, setSelectedProject] = useState(null)
-  const [tint, setTint] = useState({ color: '', opacity: '0' })
+  const [tint, setTint] = useState({ color: '', opacity: '0' }) // put in main
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const handleHover = (color, text) => {
-    setTint({ color, opacity: '0.4' })
+    setTint({ color, opacity: '0.1' })
     setHoveredItem(text)
   }
 
@@ -61,7 +61,7 @@ export default function ProjectPage() {
     backgroundPosition: 'center',
     minHeight: '100vh',
     width: '100vw',
-    transition: 'opacity 0.7s',
+    transition: 'opacity 0.9s',
     // backgroundImage: `url(${filteredProjects[0].bg})` // three?
   }
 

@@ -4,6 +4,7 @@ import Navbar from '../navbar'
 
 import { Container, Flex, Box } from '@chakra-ui/react'
 const Main = ({ children, router }) => {
+    // const [tint, SetTint]
     return (
         <Flex as="main">
             <Head>
@@ -13,7 +14,7 @@ const Main = ({ children, router }) => {
             <Box>
                 {children}
             </Box>
-        <Navbar />
+        <Navbar /> 
         </Flex>
     )
 }

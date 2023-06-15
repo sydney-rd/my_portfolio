@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "../components/layouts/main";
 import "../styles.css";
 
+
 const Website = ({ Component, pageProps, router }) => {
   return (
     <ChakraProvider>

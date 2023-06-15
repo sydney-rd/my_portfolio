@@ -1,8 +1,7 @@
 @font-face {
     font-family: 'Ailerons';
-    src: url('asset/Ailerons-TrialVersion/Ailerons-TrialVersion.otf') format('opentype');
+    src: url('public/assets/Ailerons-TrialVersion/Ailerons-TrialVersion.otf') format('opentype');
 }
-
 
 .projectCategories {
     color: wheat;
@@ -12,8 +11,3 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
   
-.idc {
-    font-family: Ailerons;
-    font-size: 10rem;
-    text-align: center;
-}

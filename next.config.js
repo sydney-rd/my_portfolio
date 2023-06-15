@@ -1,11 +1,7 @@
-module.exports = {
-  reactStrictMode: true,
-};
-
 const path = require('path');
 
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   webpack: (config, { isServer }) => {
     const prefix = config.assetPrefix ?? config.basePath ?? '';
     config.module.rules.push({
