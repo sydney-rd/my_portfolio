@@ -37,9 +37,6 @@ export default function Navbar() {
           <Link className="navBar" href="/about" style={navBarStyle}>
             ABOUT
           </Link>
-          <Link className='TEST' href="/test">
-          HELP
-          </Link>
         </Box>
       </Box>
       <Spacer />

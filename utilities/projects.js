@@ -8,7 +8,7 @@ export const projects = [
     github: '/gitui',
     link: 'netlify',
     projectBg:
-      'https://raw.githubusercontent.com/sydney-rd/my_portfolio/main/asset/background/ui.gif'
+      'https://raw.githubusercontent.com/sydney-rd/my_portfolio/main/public/assets/background/ui.gif'
   },
   {
     name: 'NASA API',
