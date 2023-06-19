@@ -29,7 +29,7 @@ export default function Navbar() {
       justifyContent="flex-start"
       alignItems="flex-end"
       paddingRight={[".2","4"]}
-      zIndex="2"
+      zIndex="10"
     >
       <Spacer />
       <Box p="4">
