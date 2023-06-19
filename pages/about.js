@@ -4,16 +4,7 @@ import AboutScene from '../components/three-scenes/AboutScene';
 export default function About() {
   return (
     <Box position="relative" height="100vh">
-      <Box
-        sx={{
-          position: 'relative',
-          width: '100%',
-          height: '100%',
-          zIndex: -1,
-        }}
-      >
-        <AboutScene />
-      </Box>
+      <AboutScene />
       <Box
         sx={{
           position: 'absolute',
@@ -26,10 +17,10 @@ export default function About() {
           justifyContent: 'center',
           alignItems: 'flex-start',
           padding: '4',
-          zIndex: 1,
+          pointerEvents: 'none', // Disable pointer events on the container box
         }}
       >
-        <VStack spacing="2" alignItems="flex-start">
+        <VStack spacing="2" alignItems="flex-start" pointerEvents="auto">
           <Link href="https://www.linkedin.com/">LinkedIn</Link>
           <Link href="https://github.com/">GitHub</Link>
           <Link href="mailto:sydneydavid56@gmail.com">Email</Link>
@@ -39,6 +30,7 @@ export default function About() {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          pointerEvents="auto"
         >
           Events &rarr; Fullstack Developer
         </Box>
@@ -46,6 +38,9 @@ export default function About() {
     </Box>
   );
 }
+
+
+
 // // test for three.js
 
 // import React from 'react'
@@ -65,10 +60,10 @@ export default function About() {
 //         <Sky sunPosition={[7, 5, 1]} />
 //         <Suspense fallback={null}>
 //           <Stars />
-//           <Cloud />
 //           <Terrain />
 //         </Suspense>
 //       </Canvas>
 //     </Box>
 //   )
 // }
+

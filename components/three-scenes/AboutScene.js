@@ -1,9 +1,9 @@
-import React from 'react'
-import { Canvas } from '@react-three/fiber'
-import { Suspense } from 'react'
-import Terrain from "./Terrain"
-import { Cloud, OrbitControls, Sky, Stars, Sparkle } from '@react-three/drei'
-import { Box } from '@chakra-ui/react'
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Suspense } from 'react';
+import Terrain from './Terrain';
+import { OrbitControls, Sky, Stars } from '@react-three/drei';
+import { Box } from '@chakra-ui/react';
 
 export default function AboutScene() {
   return (
@@ -19,5 +19,5 @@ export default function AboutScene() {
         </Suspense>
       </Canvas>
     </Box>
-  )
+  );
 }
