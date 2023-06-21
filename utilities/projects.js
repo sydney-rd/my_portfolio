@@ -32,7 +32,7 @@ export const projects = [
     projectBg: '/asset/background/uipattern.png'
   },
   {
-    name: 'TEXT ADVENTURE GAME',
+    name: 'TEXT ADVENTURE',
     description: 'testing',
     category: 'WEB',
     color: '#39FF14',

@@ -24,6 +24,10 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.4 }}
+      zIndex={40}
+      height="100vh"
+      width="100vw"
+      position="fixed"
     >
       <ModalOverlay />
       <MotionModalContent
@@ -33,26 +37,27 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         transition={{ duration: 0.3, delay: 0.1 }}
         textAlign="center"
         fontSize="2rem"
-        background="white"
+        backgroundColor="orange"
+        background="orange"
+    
+  
+        zIndex={40}
       >
         <ModalHeader
           sx={{
             fontFamily: 'Ailerons',
             fontSize: '9rem',
             textAlign: 'center',
+            zIndex: '40',
             color: color
-
           }}
         >
           {name}
         </ModalHeader>
-        <ModalCloseButton />
+        <ModalCloseButton zIndex="100" />
         <ModalBody>{description}</ModalBody>
 
-        <Box
-          display="flex"
-          justifyContent="center"
-        >
+        <Box display="flex" justifyContent="center">
           <Box
             sx={{
               backgroundImage: `url(${projectBg})`,
@@ -62,8 +67,10 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
               height: '45vh',
               width: '45vw',
               mb: '5rem',
-              borderRadius: '2rem', // not sure to keep ?
-              }}
+              zIndex: '40',
+
+              borderRadius: '2rem' // not sure to keep ?
+            }}
           />
         </Box>
       </MotionModalContent>

@@ -5,18 +5,17 @@ import { OrbitControls, Sky, Stars } from "@react-three/drei";
 export default function StarrySky() {
   return (
       <Canvas
-        camera={{ position: [0, 1, 1] }}
-        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zindex: "-1" }}
+        style={{ width: "100vw", height: "100vh" }}
       >
         <OrbitControls
-          enableZoom
-          enablePan
-          enableRotate
-          zoomSpeed={0.5}
-          panSpeed={0.5}
-          rotateSpeed={0.5}
-          autoRotate
-          autoRotateSpeed={0.1}
+          // enableZoom
+          // enablePan
+          // enableRotate
+          // zoomSpeed={0.5}
+          // panSpeed={0.5}
+          // rotateSpeed={0.5}
+          // autoRotate
+          // autoRotateSpeed={0.1}
         />
         <Sky sunPosition={[0, 0, 0]} />
         <Stars rotationSpeed={0.001} />

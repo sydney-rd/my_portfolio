@@ -2,8 +2,9 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import Terrain from './Terrain';
-import { OrbitControls, Sky, Stars } from '@react-three/drei';
+import { OrbitControls, Sky, Stars, Preload, Loader, AsyncModels } from '@react-three/drei';
 import { Box } from '@chakra-ui/react';
+import { CustomLoader } from '../loader';
 
 export default function AboutScene() {
   return (
@@ -16,8 +17,11 @@ export default function AboutScene() {
         <Suspense fallback={null}>
           <Stars />
           <Terrain />
+          <Preload all/>
         </Suspense>
+      <CustomLoader />
       </Canvas>
     </Box>
   );
 }
+
