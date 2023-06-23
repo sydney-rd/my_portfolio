@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import Navbar from '../navbar'
-// includes things on each pg 
 
 import { Container, Flex, Box } from '@chakra-ui/react'
 const Main = ({ children, router }) => {
@@ -13,7 +11,6 @@ const Main = ({ children, router }) => {
             <Box>
                 {children}
             </Box>
-        <Navbar /> 
         </Flex>
     )
 }

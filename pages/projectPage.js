@@ -5,12 +5,8 @@ import { projects } from '../utilities/projects';
 import { motion } from 'framer-motion';
 import ProjectCategories from '../components/ProjectCategories';
 import ProjectModal from '../components/projectmodal';
-import {
-  Flex,
-  useDisclosure,
-  VStack,
-  Link as ChakraLink,
-} from '@chakra-ui/react';
+import Navbar from "../components/navbar"
+import { Flex, useDisclosure, VStack, Link as ChakraLink } from '@chakra-ui/react';
 
 const MotionChakraLink = motion(ChakraLink);
 
@@ -29,27 +25,25 @@ export default function ProjectPage() {
   const filteredProjects = projects.filter(
     (project) => project.category === selectedCategory
   );
+  
   return (
+    <>
+    {!isOpen && <Navbar />}
     <Flex minHeight="100vh" width="100vw" position="relative">
+      {!isOpen && (
       <ProjectCategories
         selectedCategory={selectedCategory}
         onCategoryClick={setSelectedCategory}
       />
+      )}
       <Canvas
-        camera={{ position: [0, 10, 30] }}
+        camera={{ position: [0, 5, 30] }}
         style={{ width: '100vw', height: '100vh' }}
       >
         <OrbitControls autoRotate autoRotateSpeed={0.3} maxDistance={60} />
         <Sky sunPosition={[0, 0, 0]} />
         <Stars fade />
         <Html fullscreen transform>
-          {selectedProject && (
-            <ProjectModal
-              isOpen={isOpen}
-              onClose={onClose}
-              project={selectedProject}
-            />
-          )}
           <VStack
             align="flex-end"
             flexGrow={1}
@@ -100,5 +94,6 @@ export default function ProjectPage() {
         />
       )}
     </Flex>
+    </>
   );
 }
