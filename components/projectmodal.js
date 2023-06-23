@@ -24,7 +24,6 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.4 }}
-      zIndex={40}
       height="100vh"
       width="100vw"
       position="fixed"
@@ -39,22 +38,18 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         fontSize="2rem"
         backgroundColor="orange"
         background="orange"
-    
-  
-        zIndex={40}
       >
         <ModalHeader
           sx={{
             fontFamily: 'Ailerons',
             fontSize: '9rem',
             textAlign: 'center',
-            zIndex: '40',
             color: color
           }}
         >
           {name}
         </ModalHeader>
-        <ModalCloseButton zIndex="100" />
+        <ModalCloseButton  />
         <ModalBody>{description}</ModalBody>
 
         <Box display="flex" justifyContent="center">
@@ -67,8 +62,6 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
               height: '45vh',
               width: '45vw',
               mb: '5rem',
-              zIndex: '40',
-
               borderRadius: '2rem' // not sure to keep ?
             }}
           />

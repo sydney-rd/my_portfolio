@@ -1,34 +1,56 @@
-import { Box, VStack, Flex } from '@chakra-ui/react'
+import React from 'react'
+import { Box, VStack } from '@chakra-ui/react'
+import { motion } from 'framer-motion'
+import { projects } from '../utilities/projects'
+
+const MotionBox = motion(Box)
 
 export default function ProjectCategories({
   selectedCategory,
   onCategoryClick
 }) {
-  const categories = ['WEB', 'C++', 'PYTHON']
+  const categories = [...new Set(projects.map(project => project.category))]
 
   return (
     <VStack
-    justify="left"
-    align="left"
-    position="fixed"
-    backgroundColor="transparent"
-    zIndex="10"
-    cursor="pointer"
-    color="red"
-    fontFamily="calibri"
-    fontSize=".7rem"    
+      display="flex"
+      flexDirection="column"
+      alignItems="flex-start"
+      justifyContent="center"
+      position="fixed"
+      top="45%"
+      left="4"
+      backgroundColor="transparent"
+      zIndex="10"
+      cursor="pointer"
+      fontFamily="Verdana, Geneva, Tahoma, sans-serif"
+      fontSize=".7rem"
+      fontWeight="bold"
     >
-      {categories.map((category, index) => (
-        <Box p="2" key={index} onClick={() => onCategoryClick(category)}>
-          <p
-            className={`projectCategories ${
-              selectedCategory === category ? 'active' : ''
-            }`}
+      {categories.map((category, index) => {
+        const categoryColor =
+          selectedCategory === category
+            ? projects.find(project => project.category === category).color
+            : 'white'
+
+        return (
+          <MotionBox
+            p="2"
+            key={index}
+            onClick={() => onCategoryClick(category)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: selectedCategory === category ? 1 : 0.7,
+              color: categoryColor
+            }}
+            transition={{ duration: 0.2 }}
           >
-            {category}
-          </p>
-        </Box>
-      ))}
+            <p className="projectCategories">{category}</p>
+          </MotionBox>
+        )
+      })}
     </VStack>
   )
 }

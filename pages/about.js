@@ -1,6 +1,6 @@
 import { Box, Link, VStack } from '@chakra-ui/react';
 import AboutScene from '../components/three-scenes/AboutScene';
-
+// make links open to a new tab 
 export default function About() {
   return (
     <Box position="relative" height="100vh">

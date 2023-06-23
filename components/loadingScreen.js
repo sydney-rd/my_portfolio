@@ -12,6 +12,7 @@ const LoadingScreen = () => (
             jusitifyContent: "center",
             alignItems: "center",
             zIndex: 100,
+            backgroundColor: "black"
         }}
         >
             <Spinner size="xl" color="red.500" />

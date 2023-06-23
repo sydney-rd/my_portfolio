@@ -3,13 +3,12 @@ import { Box, Spacer } from '@chakra-ui/react'
 import Link from 'next/link'
 
 export default function Navbar() {
-  // const {color} = project
 
   const navBarStyle = {
-    // color: color,
+    color: "white",
     fontFamily: "Ailerons",
     whiteSpace: "pre",
-    // WebkitTextStroke: `1px ${tintColor}`,
+    WebkitTextStroke: `1px purple`,
     transition: "color 0.3s",
     fontSize: ".7rem",
     fontWeight: "bold",

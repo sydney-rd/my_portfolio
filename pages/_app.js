@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import Layout from '../components/layouts/main'
+import "../styles.css"
 import LoadingScreen from '../components/loadingScreen'
-import '../styles.css'
 
 const Website = ({ Component, pageProps }) => {
   const [isLoading, setIsLoading] = useState(false)

@@ -1,51 +1,48 @@
-import React, { useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Sky, Stars, Html } from '@react-three/drei'
-import { projects } from '../utilities/projects'
+import React, { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Sky, Stars, Html } from '@react-three/drei';
+import { projects } from '../utilities/projects';
+import { motion } from 'framer-motion';
+import ProjectCategories from '../components/ProjectCategories';
+import ProjectModal from '../components/projectmodal';
 import {
   Flex,
   useDisclosure,
   VStack,
-  Link as ChakraLink
-} from '@chakra-ui/react'
-import { motion } from 'framer-motion'
-import ProjectCategories from '../components/ProjectCategories'
-import ProjectModal from '../components/projectmodal'
+  Link as ChakraLink,
+} from '@chakra-ui/react';
 
-const MotionChakraLink = motion(ChakraLink)
+const MotionChakraLink = motion(ChakraLink);
 
 export default function ProjectPage() {
-  const [selectedCategory, setSelectedCategory] = useState('WEB')
-  const [hoveredItem, setHoveredItem] = useState('')
-  const [selectedProject, setSelectedProject] = useState(null)
-
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [selectedCategory, setSelectedCategory] = useState('WEB');
+  const [hoveredItem, setHoveredItem] = useState('');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Modal
-  const handleClick = project => {
-    setSelectedProject(project)
-    onOpen()
-  }
+  const handleClick = (project) => {
+    setSelectedProject(project);
+    onOpen();
+  };
 
   const filteredProjects = projects.filter(
-    project => project.category === selectedCategory
-  )
-
+    (project) => project.category === selectedCategory
+  );
   return (
     <Flex minHeight="100vh" width="100vw" position="relative">
       <ProjectCategories
         selectedCategory={selectedCategory}
         onCategoryClick={setSelectedCategory}
       />
-
       <Canvas
-        camera={{ position: [0, 0, 20] }}
+        camera={{ position: [0, 10, 30] }}
         style={{ width: '100vw', height: '100vh' }}
       >
-        <OrbitControls autoRotate autoRotateSpeed={0.2} maxDistance={60} />
+        <OrbitControls autoRotate autoRotateSpeed={0.3} maxDistance={60} />
         <Sky sunPosition={[0, 0, 0]} />
-        <Stars />
-        <Html fullscreen transform >
+        <Stars fade />
+        <Html fullscreen transform>
           {selectedProject && (
             <ProjectModal
               isOpen={isOpen}
@@ -57,11 +54,11 @@ export default function ProjectPage() {
             align="flex-end"
             flexGrow={1}
             pr={['4rem', '7rem']}
-            zIndex="1"
+            zIndex={0}
             spacing={-1}
             maxH="100vh"
             position="relative"
-            visibility= {isOpen ? 'hidden' : 'visible'}
+            visibility={isOpen ? 'hidden' : 'visible'}
             userSelect="none"
           >
             {filteredProjects.map((project, index) => (
@@ -83,8 +80,8 @@ export default function ProjectPage() {
                   _hover: {
                     color: project.color,
                     textShadow: `1px 1px 7px ${project.color}`,
-                    transition: 'text-shadow 0.5s ease' // no work
-                  }
+                    transition: 'text-shadow 0.5s ease', // no work
+                  },
                 }}
                 onClick={() => handleClick(project)}
               >
@@ -94,6 +91,14 @@ export default function ProjectPage() {
           </VStack>
         </Html>
       </Canvas>
+      {selectedProject && (
+        <ProjectModal
+          isOpen={isOpen}
+          onClose={onClose}
+          project={selectedProject}
+          zIndex={10}
+        />
+      )}
     </Flex>
-  )
+  );
 }
